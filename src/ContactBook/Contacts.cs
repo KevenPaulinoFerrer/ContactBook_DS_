@@ -19,16 +19,16 @@ public class Contact : IEquatable<Contact>
     public string GetLName() { return lname; }
     public string GetEmail() { return email; }
     public string GetPhone() { return phone; }
-    public string SetFName(string fn) { fname = fn; }
-    public string SetLName(string ln) { lname = ln; }
-    public string SetEmail(string e) { email = e; }
-    public string SetPhone(string p) { phone = p; }
+    public void SetFName(string fn) { fname = fn; }
+    public void SetLName(string ln) { lname = ln; }
+    public void SetEmail(string e) { email = e; }
+    public void SetPhone(string p) { phone = p; }
 
     public override string ToString()
     {
         return $"Contact[fname ={fname}, lname={lname}, phone={phone}, email={email}]";
     }
-    public override bool Equals(Contact? other)
+    public bool Equals(Contact? other)
     {
         if (other == null) { return false; }
         if (ReferenceEquals(this, other)) { return true; }
