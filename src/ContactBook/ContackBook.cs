@@ -376,7 +376,39 @@ public class ContactBook
 
     private void DeleteContact()
     {
+        int index = GetInt("Enter index", 1, allContacts.Count) - 1;
+        Console.Clear();
+        Console.WriteLine(new string('#', 80));
         Console.WriteLine("Delete Contact");
+        Console.WriteLine(new string('#', 80));
+        Console.WriteLine();
+
+        DeleteContact(allContacts, index);
+
+        Console.WriteLine();
+
+        PressEnterToContinue();
+
+    }
+
+
+    private void DeleteContact(List<Contact> contacts, int index)
+    {
+        Contact c = contacts[index];
+
+        ReviewContact(contacts, index);
+
+        Console.WriteLine();
+
+        if (Confirm("Do you want to delete this contact?", NO))
+        {
+            contacts.Remove(c);
+            Console.WriteLine("Operation successful: Contact deleted.");
+        }
+        else
+        {
+            Console.WriteLine("Operation cancelled: Contact not delete.");
+        }
 
     }
 
