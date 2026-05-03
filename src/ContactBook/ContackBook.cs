@@ -14,9 +14,9 @@ public class ContactBook
     public const string REVIEW_CONTACT = "R";
     public const string UPDATE_CONTACT = "U";
     public const string DELETE_CONTACT = "D";
-    public const string FIND_CONTACT = "F";
-    public const string ORDER_CONTACT = "O";
-    public const string DUPLICATE_CONTACT = "M";
+    public const string FIND_CONTACTS = "F";
+    public const string ORDER_CONTACTS = "O";
+    public const string DEDUPLICATE_CONTACTS = "M";
     public const string EXIT = "X";
 
     public readonly string[] COMMANDS = new string[]
@@ -29,9 +29,9 @@ public class ContactBook
         REVIEW_CONTACT ,
         UPDATE_CONTACT ,
         DELETE_CONTACT,
-        FIND_CONTACT,
-        ORDER_CONTACT ,
-        DUPLICATE_CONTACT ,
+        FIND_CONTACTS,
+        ORDER_CONTACTS ,
+        DEDUPLICATE_CONTACTS ,
         EXIT
 
 };
@@ -118,6 +118,15 @@ public class ContactBook
 
     private void ShowInputOptions()
     {
+        string inputOptions = ""
+        + $"[{NEXT_PAGE}] Next Page | [{CREATE_CONTACT}] Create Contact | [{DELETE_CONTACT}] Delete Contacts | [{DEDUPLICATE_CONTACTS}] Deduplicate Contacts\n"
+        + $"[{PREV_PAGE}] Prev Page | [{REVIEW_CONTACT}] Review Contact | [{FIND_CONTACTS}] Find Contacts   | [{PAGE_SIZE}] Change Page Size\n"
+        + $"[{GOTO_PAGE}] Goto Page | [{UPDATE_CONTACT}] Update Contact | [{ORDER_CONTACTS}] Order Contacts  | [{EXIT}] Exit\n"
+        + $"\n> ";
+
+        Console.WriteLine();
+        Console.Write(inputOptions);
+
     }
 
     private string GetInput()
