@@ -1,5 +1,5 @@
 using Xunit;
-using ContactBook;
+using ContactBookApp;
 
 
 namespace ContactBook.Tests
