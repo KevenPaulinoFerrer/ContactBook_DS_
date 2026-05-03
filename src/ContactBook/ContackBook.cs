@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace ContactBookApp;
 
+using static ContactComparer;
 public class ContactBook
 {
     public const string YES = "Y";
@@ -436,8 +437,16 @@ public class ContactBook
 
     private void OrderContacts()
     {
-        Console.WriteLine("Order Contact");
+        SortType[] sortTypes = new SortType[]
+        {
+            SortType.FName, SortType.LName, SortType.Phone, SortType.Email
+        };
 
+        int index = GetInt("Sort contacts by [0] First Name [1] Last Name [2] Phone [3] Email", 0, 3);
+
+        ContactComparer ccp = new ContactComparer(sortTypes[index]);
+        allContacts.Sort(ccp);
+        filteredContacts.Sort(ccp);
     }
 
     private void DeduplicateContacts()
@@ -449,6 +458,7 @@ public class ContactBook
     {
         isExit = true;
     }
+
     private string GetOption(string prompt, string[] validOptions, string defaultOption)
     {
 
@@ -474,7 +484,6 @@ public class ContactBook
 
         return GetOption(prompt, YES_NO, defaultOption) == YES;
     }
-
     private static int GetPageCount(List<Contact> contacts, int size)
     {
         return (int)Math.Max(1, Math.Ceiling(contacts.Count / (double)size));
