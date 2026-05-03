@@ -65,7 +65,7 @@ public class ContactBook
 
     private void ShowWelcomeScreen()
     {
-        Console.WriteLine("Wecome to Contack Book App");
+        Console.WriteLine("Wecome to Contact Book App");
         PressEnterToContinue();
     }
 
@@ -180,7 +180,8 @@ public class ContactBook
 
     private void ShowExitScreen()
     {
-
+        Console.Clear();
+        Console.WriteLine("Thank you for using Contact Book App");
     }
     private void PressEnterToContinue()
     {
