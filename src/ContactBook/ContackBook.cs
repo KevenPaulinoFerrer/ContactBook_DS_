@@ -223,7 +223,11 @@ public class ContactBook
 
     private void GotoPage()
     {
-        Console.WriteLine("Goto Page");
+        GotoPage(allContacts, ref page, size);
+    }
+    private void GotoPage(List<Contact> contacts, ref int page, int size)
+    {
+        page = GetInt("Enter page", 1, GetPageCount(contacts, size));
     }
 
     private void PageSize()
@@ -306,6 +310,24 @@ public class ContactBook
     {
         return (int)Math.Max(1, Math.Ceiling(contacts.Count / (double)size));
     }
+    private int GetInt(string prompt, int min, int max)
+    {
+        string options = $"{min}-{max}";
+
+        Console.Write(prompt + $" [{options}] ");
+        string answer = Console.ReadLine()!;
+        int value;
+
+        while (!int.TryParse(answer, out value) || value < min || value > max)
+        {
+            Console.WriteLine("ERROR: Invalid option. Please try again.");
+            Console.Write(prompt + $" [{options}] ");
+            answer = Console.ReadLine()!;
+        }
+
+        return value;
+    }
+
 
 
 }
