@@ -25,7 +25,10 @@ public class Program
     new Contact("Andres", "Reyes", "469-555-1017", "andres.reyes@hotmail.com"),
     new Contact("Elena", "Vargas", "972-555-1018", "elena.vargas@gmail.com"),
     new Contact("Jorge", "Mendoza", "281-555-1019", "jorge.mendoza@yahoo.com"),
+    new Contact("", "Mendoza", "281-555-1019", ""),
     new Contact("Lucia", "Aguilar", "602-555-1020", "lucia.aguilar@hotmail.com"),
+    new Contact("Lucia", "", "602-555-1020", "lucia.aguilar@hotmail.com"),
+    new Contact("Lucia", "", "", "lucia.aguilar@hotmail.com"),
 
     new Contact("Kevin", "Rios", "480-555-1021", "kevin.rios@gmail.com"),
     new Contact("Natalia", "Guerrero", "623-555-1022", "natalia.g@yahoo.com"),
