@@ -1,4 +1,4 @@
-# Contact Book App (ContactBook_DS_)
+# Contact Book App 
 
 A console-based Contact Book application written in **C#**, designed to manage contacts efficiently using lists and custom data manipulation features like sorting, searching, pagination, and deduplication.
 
