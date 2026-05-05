@@ -59,7 +59,6 @@ public class ContactBook
     {
         ShowWelcomeScreen();
         string input;
-
         do
         {
             do
@@ -79,7 +78,6 @@ public class ContactBook
         Console.WriteLine("Wecome to Contact Book App");
         PressEnterToContinue();
     }
-
 
     private void ShowContacts()
     {
@@ -136,8 +134,6 @@ public class ContactBook
         }
 
     }
-
-
 
     private void ShowInputOptions()
     {
@@ -265,6 +261,7 @@ public class ContactBook
         {
             Contact c = new Contact(fname, lname, phone, email);
             filteredContacts.Add(c);
+            allContacts.Add(c);
             page = GetPageCount(filteredContacts, size);
             Console.WriteLine("Operation successful: Contact created.");
         }
@@ -321,11 +318,14 @@ public class ContactBook
     private void UpdateContact(List<Contact> contacts, int index)
     {
         Contact c = contacts[index];
+        int i = allContacts.FindIndex(contact => contact == c);
 
         string fname = c.GetFName();
         string lname = c.GetLName();
         string phone = c.GetPhone();
         string email = c.GetEmail();
+
+
 
         ReviewContact(contacts, index);
 
@@ -363,6 +363,7 @@ public class ContactBook
             c.SetLName(lname);
             c.SetPhone(phone);
             c.SetEmail(email);
+            allContacts[i] = c;
             Console.WriteLine("Operation successful: Contact updated.");
         }
         else
@@ -400,6 +401,7 @@ public class ContactBook
         if (Confirm("Do you want to delete this contact?", NO))
         {
             contacts.Remove(c);
+            allContacts.Remove(c);
             Console.WriteLine("Operation successful: Contact deleted.");
         }
         else
